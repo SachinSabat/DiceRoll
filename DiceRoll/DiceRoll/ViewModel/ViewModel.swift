@@ -13,9 +13,6 @@ final class ViewModel: ViewModelInputProtocol {
     func generateRandomNumber() {
         let diceRollFirst = Int(arc4random_uniform(6) + 1)
         let diceRollSecond = Int(arc4random_uniform(6) + 1)
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else {return}
-            self.view?.updateDice(diceRollFirst: diceRollFirst, diceRollSecond: diceRollSecond)
-        }
+        self.view?.updateDice(diceRollFirst: diceRollFirst, diceRollSecond: diceRollSecond)
     }
 }
